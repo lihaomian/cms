@@ -5,9 +5,12 @@ import java.util.List;
 import com.briup.cms.bean.Category;
 import com.briup.cms.dao.CategoryDao;
 import com.briup.cms.service.ICategoryService;
-
+/**
+ * 栏目管理 业务逻辑层的实现类
+ * */
 public class CategoryServiceImpl implements ICategoryService {
-	private CategoryDao categoryDao;
+	//创建Dao层对象，方便Serice层的各个方法调用dao层的方法
+	private CategoryDao categoryDao = new CategoryDao();
 	@Override
 	public void add(Category category) {
 		categoryDao.save(category);
@@ -15,6 +18,7 @@ public class CategoryServiceImpl implements ICategoryService {
 	
 	@Override
 	public List<Category> list() {
+		
 		return null;
 	}
 	

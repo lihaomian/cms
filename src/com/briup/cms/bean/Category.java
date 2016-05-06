@@ -3,10 +3,12 @@ package com.briup.cms.bean;
  * 栏目
  * */
 public class Category {
+	//私有属性
 	private Long id;
 	private String name;
 	private Integer code;
 	
+	//构造函数
 	public Category() {
 		
 	}
@@ -15,7 +17,7 @@ public class Category {
 		this.name = name;
 		this.code = code;
 	}
-	
+	//setter,getter方法
 	public String getName() {
 		return name;
 	}

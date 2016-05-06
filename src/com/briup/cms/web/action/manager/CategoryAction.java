@@ -7,26 +7,35 @@ import com.briup.cms.bean.Category;
 import com.briup.cms.service.ICategoryService;
 import com.briup.cms.service.impl.CategoryServiceImpl;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * 后台栏目管理Action
+ * */
 public class CategoryAction extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
+	
+	//同名参数传值
 	private String name;
 	private Integer code;
 	
+	//创建service层对象，方便action各个方法去调用
 	private ICategoryService categoryService = new CategoryServiceImpl();
 	
 	
 	/**
 	 * 跳转到添加栏目页面
+	 * @author 李四
+	 * http://localhost:8888/cms/manager/toAddCategory.action
 	 * */
 	@Action(value="toAddCategory",
-			results={@Result(name="success",location="/WEB-INF/jsp/manager/addCategory.jsp")})
+			results={@Result(name="success",
+			location="/WEB-INF/jsp/manager/addCategory.jsp")})
 	public String toAddCategory(){
 		return SUCCESS;//"success"
 	}
 	
 	/**
+	 * @author 王五
 	 * 跳转到栏目管理页面
 	 * */
 	@Action(value="toCategoryManager",
@@ -37,10 +46,13 @@ public class CategoryAction extends ActionSupport {
 	
 	/**
 	 * 添加栏目
+	 * @author 李四
 	 * */
 	@Action(value="addCategory")
 	public void addCategory(){
+		//将接收到的参数进行封装，封装为一个对象
 		Category category = new Category(name, code);
+		//调用sercice层的服务，完成添加栏目的功能
 		categoryService.add(category);
 	}
 
